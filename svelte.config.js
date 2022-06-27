@@ -16,12 +16,12 @@ const config = {
 
 		vite: {
 			define: {
-        'process.env.BROWSER': true,
-        'process.env.NODE_DEBUG': JSON.stringify(''),
-      },
+				'process.env.BROWSER': true,
+				'process.env.NODE_DEBUG': JSON.stringify('')
+			},
 			optimizeDeps: {
-        include: ['@solana/web3.js', 'buffer'],
-      },
+				include: ['@solana/web3.js', 'buffer']
+			}
 		}
 	}
 };
