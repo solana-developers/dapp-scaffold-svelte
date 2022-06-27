@@ -1,22 +1,19 @@
-# create-svelte
+# DApp Scaffold Svelte
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+This is a [`SvelteKit`](https://kit.svelte.dev/) project powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte) to create Solana Dapps based on Svelte.
 
-## Creating a project
+It is using the [`svelte-wallet-adapter`](https://github.com/svelte-on-solana/wallet-adapter) to integrate wallets, and [`tailwindcss`](https://tailwindcss.com/) and [`daisyui`](https://daisyui.com/) for styling.
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Installation
 
 ```bash
-# create a new project in the current directory
-npm init svelte
-
-# create a new project in my-app
-npm init svelte my-app
+npm install
+# or
+yarn install
 ```
 
 ## Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
 ```bash
 npm run dev
@@ -36,3 +33,7 @@ npm run build
 You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+
+## References
+
+This scaffold references features and styling from the original [Next.js scaffold](https://github.com/solana-labs/dapp-scaffold)
