@@ -12,7 +12,17 @@ const config = {
 	],
 
 	kit: {
-		adapter: adapter()
+		adapter: adapter(),
+
+		vite: {
+			define: {
+        'process.env.BROWSER': true,
+        'process.env.NODE_DEBUG': JSON.stringify(''),
+      },
+			optimizeDeps: {
+        include: ['@solana/web3.js', 'buffer'],
+      },
+		}
 	}
 };
 
