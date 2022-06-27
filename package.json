@@ -35,6 +35,12 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@solana/wallet-adapter-base": "^0.9.5",
+		"@solana/wallet-adapter-wallets": "^0.16.1",
+		"@solana/web3.js": "^1.44.3",
+		"@svelte-on-solana/wallet-adapter-core": "^1.0.6-alpha.0",
+		"@svelte-on-solana/wallet-adapter-ui": "^1.0.17-alpha.0",
+		"buffer": "^6.0.3",
 		"daisyui": "^2.17.0"
 	}
 }
