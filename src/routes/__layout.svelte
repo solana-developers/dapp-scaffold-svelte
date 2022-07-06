@@ -1,7 +1,6 @@
 <script context="module" lang="ts">
 	import { Buffer } from 'buffer';
 
-	// eslint-disable-next-line
 	globalThis.Buffer = Buffer;
 </script>
 
@@ -10,7 +9,7 @@
 	import { clusterApiUrl } from '@solana/web3.js';
 	import { WalletProvider, ConnectionProvider } from '@svelte-on-solana/wallet-adapter-ui';
 	import type { Adapter } from '@solana/wallet-adapter-base';
-
+	import { AppBar, ContentContainer, Footer } from '$lib/index';
 	import '../app.css';
 
 	const localStorageKey = 'walletAdapter';
@@ -36,4 +35,8 @@
 
 <WalletProvider {localStorageKey} {wallets} />
 <ConnectionProvider {network} />
-<slot />
+<AppBar />
+<ContentContainer>
+	<slot />
+</ContentContainer>
+<Footer />
