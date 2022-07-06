@@ -9,12 +9,15 @@
 	import { clusterApiUrl } from '@solana/web3.js';
 	import { WalletProvider, ConnectionProvider } from '@svelte-on-solana/wallet-adapter-ui';
 	import type { Adapter } from '@solana/wallet-adapter-base';
+	import { getLocalStorage } from '@svelte-on-solana/wallet-adapter-core';
 	import { AppBar, ContentContainer, Footer } from '$lib/index';
+	import { browser } from '$app/env';
 	import '../app.css';
 
 	const localStorageKey = 'walletAdapter';
 	const network = clusterApiUrl('devnet');
 	let wallets: Adapter[];
+	$: autoConnect = browser && Boolean(getLocalStorage('autoconnect', false));
 
 	onMount(async () => {
 		const {
@@ -33,7 +36,7 @@
 	});
 </script>
 
-<WalletProvider {localStorageKey} {wallets} />
+<WalletProvider {localStorageKey} {wallets} {autoConnect} />
 <ConnectionProvider {network} />
 <AppBar />
 <ContentContainer>

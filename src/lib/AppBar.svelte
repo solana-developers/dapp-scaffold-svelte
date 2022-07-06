@@ -1,7 +1,10 @@
 <script lang="ts">
 	import { WalletMultiButton } from '@svelte-on-solana/wallet-adapter-ui';
+	import { setLocalStorage, getLocalStorage } from '@svelte-on-solana/wallet-adapter-core';
+	import { browser } from '$app/env';
 
-	let checked = false;
+	let checked = Boolean(getLocalStorage('autoconnect', false));
+	$: browser && setLocalStorage('autoconnect', checked);
 </script>
 
 <!-- NavBar / Header -->
