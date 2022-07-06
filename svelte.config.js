@@ -1,10 +1,8 @@
 import adapter from '@sveltejs/adapter-auto';
 import preprocess from 'svelte-preprocess';
+import inject from '@rollup/plugin-inject';
 
-/** @type {import('@sveltejs/kit').Config} */
 const config = {
-	// Consult https://github.com/sveltejs/svelte-preprocess
-	// for more information about preprocessors
 	preprocess: [
 		preprocess({
 			postcss: true
@@ -17,10 +15,19 @@ const config = {
 		vite: {
 			define: {
 				'process.env.BROWSER': true,
-				'process.env.NODE_DEBUG': JSON.stringify('')
+				'process.env.NODE_DEBUG': JSON.stringify(''),
+				'process.env.VERSION': JSON.stringify(process.env.npm_package_version)
 			},
 			optimizeDeps: {
 				include: ['@solana/web3.js', 'buffer']
+			},
+			build: {
+				rollupOptions: {
+					plugins: [inject({ Buffer: ['buffer', 'Buffer'] })]
+				}
+			},
+			server: {
+				host: true
 			}
 		}
 	}
