@@ -15,7 +15,8 @@ const config = {
 		vite: {
 			define: {
 				'process.env.BROWSER': true,
-				'process.env.NODE_DEBUG': JSON.stringify('')
+				'process.env.NODE_DEBUG': JSON.stringify(''),
+				'process.env.VERSION': JSON.stringify(process.env.npm_package_version)
 			},
 			optimizeDeps: {
 				include: ['@solana/web3.js', 'buffer']
