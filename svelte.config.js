@@ -1,6 +1,7 @@
 import adapter from '@sveltejs/adapter-auto';
 import preprocess from 'svelte-preprocess';
 import inject from '@rollup/plugin-inject';
+import path from 'path';
 
 const config = {
 	preprocess: [
@@ -20,6 +21,11 @@ const config = {
 			},
 			optimizeDeps: {
 				include: ['@solana/web3.js', 'buffer']
+			},
+			resolve: {
+				alias: {
+					$stores: path.resolve('./src/stores')
+				}
 			},
 			build: {
 				rollupOptions: {

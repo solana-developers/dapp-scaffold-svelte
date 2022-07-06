@@ -20,11 +20,6 @@
     box-sizing: border-box;
   }
 
-  /* example: override wallet button style */
-  .wallet-adapter-button:not([disabled]):hover {
-    background-color: #707070;
-  }
-
   .drawer-content {
     height: 100%;
   }

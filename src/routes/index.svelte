@@ -1,7 +1,12 @@
 <script lang="ts">
+	import { RequestAirdrop } from '$lib/index';
 	import { walletStore } from '@svelte-on-solana/wallet-adapter-core';
+	import { workSpace } from '@svelte-on-solana/wallet-adapter-ui';
+	import { balanceStore } from '$stores/balance';
+	import type { PublicKey } from '@solana/web3.js';
 
-	let balance = 0.0;
+	$: $walletStore.connected &&
+		balanceStore.getUserSOLBalance($walletStore.publicKey as PublicKey, $workSpace.connection);
 </script>
 
 <div class="p-4 mx-auto md:hero">
@@ -23,9 +28,9 @@
 		</pre>
 		</div>
 		<div class="text-center">
-			<!-- <RequestAirdrop /> -->
-			{#if $walletStore}
-				<p>SOL Balance: {(balance || 0).toLocaleString()}</p>
+			<RequestAirdrop />
+			{#if $walletStore.connected}
+				<p>SOL Balance: {($balanceStore.balance || 0).toLocaleString()}</p>
 			{/if}
 		</div>
 	</div>
