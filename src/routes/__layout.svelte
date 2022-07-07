@@ -8,6 +8,7 @@
 	import { onMount } from 'svelte';
 	import { clusterApiUrl } from '@solana/web3.js';
 	import { WalletProvider, ConnectionProvider } from '@svelte-on-solana/wallet-adapter-ui';
+	import { WalletAdapterNetwork } from '@solana/wallet-adapter-base';
 	import type { Adapter } from '@solana/wallet-adapter-base';
 	import { getLocalStorage } from '@svelte-on-solana/wallet-adapter-core';
 	import { AppBar, ContentContainer, Footer } from '$lib/index';
@@ -15,7 +16,7 @@
 	import '../app.css';
 
 	const localStorageKey = 'walletAdapter';
-	const network = clusterApiUrl('devnet');
+	const network = clusterApiUrl(WalletAdapterNetwork.Devnet);
 	let wallets: Adapter[];
 	$: autoConnect = browser && Boolean(getLocalStorage('autoconnect', false));
 
