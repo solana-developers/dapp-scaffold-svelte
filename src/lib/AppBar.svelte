@@ -134,8 +134,8 @@
 	</div>
 </div>
 
-<style lang="postcss">
-	:global(button.wallet-adapter-button-trigger) {
+<style lang="postcss" global>
+	button.wallet-adapter-button-trigger {
 		@apply btn btn-ghost mr-4 !important;
 	}
 </style>
