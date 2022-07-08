@@ -1,6 +1,10 @@
-# DApp Scaffold Svelte
+# Dapp Scaffold Svelte
 
 This is a [`SvelteKit`](https://kit.svelte.dev/) project powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte) to create Solana Dapps based on Svelte.
+
+Responsive                     |  Desktop
+:-------------------------:|:-------------------------:
+![](scaffold-mobile.png)  |  ![](scaffold-desktop.png)
 
 It is using the [`svelte-wallet-adapter`](https://github.com/svelte-on-solana/wallet-adapter) to integrate wallets, and [`tailwindcss`](https://tailwindcss.com/) and [`daisyui`](https://daisyui.com/) for styling.
 
