@@ -3,12 +3,13 @@
 	import { workSpace } from '@svelte-on-solana/wallet-adapter-ui';
 	import { Keypair, SystemProgram, Transaction, type TransactionSignature } from '@solana/web3.js';
 	import { Button } from '$lib/index';
+	import { notificationStore } from '$stores/notification';
 
 	$: ({ publicKey, sendTransaction } = $walletStore);
 
 	async function onClick() {
 		if (!publicKey) {
-			// notify({ type: 'error', message: `Wallet not connected!` });
+			notificationStore.add({ type: 'error', message: `Wallet not connected!` });
 			console.log('error', `Send Transaction: Wallet not connected!`);
 			return;
 		}
@@ -28,15 +29,20 @@
 			signature = await sendTransaction(transaction, connection);
 
 			await connection.confirmTransaction(signature, 'confirmed');
-            console.log('confirmed: ');
-			// notify({ type: 'success', message: 'Transaction successful!', txid: signature });
+			console.log('confirmed: ');
+
+			notificationStore.add({
+				type: 'success',
+				message: 'Transaction successful!',
+				txid: signature
+			});
 		} catch (error: any) {
-			// notify({
-			// 	type: 'error',
-			// 	message: `Transaction failed!`,
-			// 	description: error?.message,
-			// 	txid: signature
-			// });
+			notificationStore.add({
+				type: 'error',
+				message: `Transaction failed!`,
+				description: error?.message,
+				txid: signature
+			});
 			console.log('error', `Transaction failed! ${error?.message}`, signature);
 			return;
 		}

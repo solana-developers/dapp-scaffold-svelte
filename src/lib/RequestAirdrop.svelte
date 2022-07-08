@@ -3,12 +3,16 @@
 	import { workSpace } from '@svelte-on-solana/wallet-adapter-ui';
 	import { LAMPORTS_PER_SOL, type TransactionSignature, type PublicKey } from '@solana/web3.js';
 	import { balanceStore } from '$stores/balance';
+	import { notificationStore } from '$stores/notification';
 
 	async function onClick() {
 		if (!$walletStore.connected) {
 			console.log('error', 'Wallet not connected!');
-			// TODO: notifications
-			// notify({ type: 'error', message: 'error', description: 'Wallet not connected!' });
+			notificationStore.add({
+				type: 'error',
+				message: 'error',
+				description: 'Wallet not connected!'
+			});
 			return;
 		}
 
@@ -19,12 +23,15 @@
 		try {
 			signature = await connection.requestAirdrop(publicKey, LAMPORTS_PER_SOL);
 			await connection.confirmTransaction(signature, 'confirmed');
-			// TODO: notifications
-			// notify({ type: 'success', message: 'Airdrop successful!', txid: signature });
+			notificationStore.add({ type: 'success', message: 'Airdrop successful!', txid: signature });
 			balanceStore.getUserSOLBalance(publicKey, connection);
 		} catch (error: any) {
-			// TODO: notifications
-			// notify({ type: 'error', message: `Airdrop failed!`, description: error?.message, txid: signature });
+			notificationStore.add({
+				type: 'error',
+				message: `Airdrop failed!`,
+				description: error?.message,
+				txid: signature
+			});
 			console.log('error', `Airdrop failed! ${error?.message}`, signature);
 		}
 	}
