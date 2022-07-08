@@ -7,10 +7,9 @@
 	on:click
 	{disabled}
 >
-    {#if disabled}
-        Wallet not connected
-    {:else}
-        <slot>click</slot>
-    {/if}
-	<!-- {disabled ? 'Wallet not connected' : 'Sign Message'} -->
+	{#if disabled}
+		Wallet not connected
+	{:else}
+		<slot>click</slot>
+	{/if}
 </button>

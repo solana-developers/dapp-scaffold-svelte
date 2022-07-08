@@ -41,9 +41,11 @@
 		"@solana/web3.js": "^1.44.3",
 		"@svelte-on-solana/wallet-adapter-core": "^1.0.6-alpha.0",
 		"@svelte-on-solana/wallet-adapter-ui": "^1.0.17-alpha.0",
+		"@types/uuid": "^8.3.4",
 		"bs58": "^5.0.0",
 		"buffer": "^6.0.3",
 		"daisyui": "^2.17.0",
-		"tweetnacl": "^1.0.3"
+		"tweetnacl": "^1.0.3",
+		"uuid": "^8.3.2"
 	}
 }

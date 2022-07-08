@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { walletStore } from '@svelte-on-solana/wallet-adapter-core';
-    import { workSpace } from '@svelte-on-solana/wallet-adapter-ui';
-	import { sign } from 'tweetnacl';
 	import { Button } from '$lib/index';
-	// import bs58 from 'bs58';
+	import { notificationStore } from '$stores/notification';
+	import { sign } from 'tweetnacl';
+	import bs58 from 'bs58';
 
 	$: ({ publicKey, signMessage } = $walletStore);
 
@@ -20,9 +20,17 @@
 			// Verify that the bytes were signed using the private key that matches the known public key
 			if (!sign.detached.verify(message, signature, publicKey.toBytes()))
 				throw new Error('Invalid signature!');
-			// notify({ type: 'success', message: 'Sign message successful!', txid: bs58.encode(signature) });
+			notificationStore.add({
+				type: 'success',
+				message: 'Sign message successful!',
+				txid: bs58.encode(signature)
+			});
 		} catch (error: any) {
-			// notify({ type: 'error', message: `Sign Message failed!`, description: error?.message });
+			notificationStore.add({
+				type: 'error',
+				message: `Sign Message failed!`,
+				description: error?.message
+			});
 			console.log('error', `Sign Message failed! ${error?.message}`);
 		}
 	}

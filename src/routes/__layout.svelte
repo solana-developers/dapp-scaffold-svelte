@@ -11,7 +11,7 @@
 	import { WalletAdapterNetwork } from '@solana/wallet-adapter-base';
 	import type { Adapter } from '@solana/wallet-adapter-base';
 	import { getLocalStorage } from '@svelte-on-solana/wallet-adapter-core';
-	import { AppBar, ContentContainer, Footer } from '$lib/index';
+	import { AppBar, ContentContainer, Footer, NotificationList } from '$lib/index';
 	import { browser } from '$app/env';
 	import '../app.css';
 
@@ -43,4 +43,5 @@
 <ContentContainer>
 	<slot />
 </ContentContainer>
+<NotificationList />
 <Footer />
