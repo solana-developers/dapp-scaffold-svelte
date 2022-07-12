@@ -16,18 +16,21 @@
 		PhantomWalletAdapter,
 		SolflareWalletAdapter,
 		SolletExtensionWalletAdapter,
+		SolletWalletAdapter,
 		TorusWalletAdapter
 	} from '@solana/wallet-adapter-wallets';
 	import '../app.css';
 
 	const localStorageKey = 'walletAdapter';
+	const endpoint = WalletAdapterNetwork.Devnet;
 	const network = clusterApiUrl(WalletAdapterNetwork.Devnet);
 
 	let wallets: Adapter[] = [
 		new PhantomWalletAdapter(),
 		new SolflareWalletAdapter(),
-		new SolletExtensionWalletAdapter(),
-		new TorusWalletAdapter()
+		new SolletWalletAdapter({ network: endpoint }),
+		new SolletExtensionWalletAdapter({ network: endpoint }),
+		new TorusWalletAdapter(),
 	];
 
 	$: autoConnect = browser && Boolean(getLocalStorage('autoconnect', false));

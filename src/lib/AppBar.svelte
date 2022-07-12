@@ -130,7 +130,7 @@
 				</li>
 			</ul>
 		</div>
-		<WalletMultiButton />
+		<WalletMultiButton maxNumberOfWallets={5} />
 	</div>
 </div>
 
