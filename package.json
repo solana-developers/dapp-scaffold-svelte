@@ -1,6 +1,6 @@
 {
 	"name": "dapp-scaffold-svelte",
-	"version": "0.0.1",
+	"version": "0.1.0",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
@@ -13,9 +13,10 @@
 		"format": "prettier --write --plugin-search-dir=. ."
 	},
 	"devDependencies": {
+		"@esbuild-plugins/node-globals-polyfill": "^0.1.1",
 		"@rollup/plugin-inject": "^4.0.4",
 		"@sveltejs/adapter-auto": "next",
-		"@sveltejs/kit": "1.0.0-next.370",
+		"@sveltejs/kit": "^1.0.0-next.400",
 		"@tailwindcss/typography": "^0.5.2",
 		"@typescript-eslint/eslint-plugin": "^5.27.0",
 		"@typescript-eslint/parser": "^5.27.0",
@@ -27,21 +28,22 @@
 		"postcss-load-config": "^3.1.4",
 		"prettier": "^2.6.2",
 		"prettier-plugin-svelte": "^2.7.0",
+		"rollup-plugin-node-polyfills": "^0.2.1",
 		"svelte": "^3.44.0",
 		"svelte-check": "^2.7.1",
 		"svelte-preprocess": "^4.10.5",
 		"tailwindcss": "^3.0.23",
 		"tslib": "^2.3.1",
 		"typescript": "^4.7.2",
-		"vite": "^2.9.14"
+		"vite": "^3.0.9"
 	},
 	"type": "module",
 	"dependencies": {
-		"@solana/wallet-adapter-base": "^0.9.5",
-		"@solana/wallet-adapter-wallets": "^0.16.1",
-		"@solana/web3.js": "^1.44.3",
-		"@svelte-on-solana/wallet-adapter-core": "^1.0.6-alpha.0",
-		"@svelte-on-solana/wallet-adapter-ui": "^1.0.17-alpha.0",
+		"@solana/wallet-adapter-base": "^0.9.16",
+		"@solana/wallet-adapter-wallets": "^0.18.5",
+		"@solana/web3.js": "^1.50.1",
+		"@svelte-on-solana/wallet-adapter-core": "^1.0.8-alpha.0",
+		"@svelte-on-solana/wallet-adapter-ui": "^1.0.20-alpha.0",
 		"@types/uuid": "^8.3.4",
 		"bs58": "^5.0.0",
 		"buffer": "^6.0.3",
