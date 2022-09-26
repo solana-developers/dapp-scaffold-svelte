@@ -2,7 +2,6 @@ import { sveltekit } from '@sveltejs/kit/vite';
 import { NodeGlobalsPolyfillPlugin } from "@esbuild-plugins/node-globals-polyfill";
 import inject from '@rollup/plugin-inject';
 import nodePolyfills from "rollup-plugin-node-polyfills";
-import path from 'path';
 
 /** @type {import('vite').UserConfig} */
 const config = {
@@ -18,12 +17,6 @@ const config = {
 				target: 'esnext',
 				plugins: [NodeGlobalsPolyfillPlugin({ buffer: true })],
 		},
-	},
-	resolve: {
-		alias: {
-			$stores: path.resolve('./src/stores'),
-			stream: 'rollup-plugin-node-polyfills/polyfills/stream',
-		}
 	},
 	build: {
 		target: 'esnext',
