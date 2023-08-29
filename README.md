@@ -12,8 +12,6 @@ It is using the [`svelte-wallet-adapter`](https://github.com/svelte-on-solana/wa
 
 ```bash
 npm install
-# or
-yarn install
 ```
 
 ## Developing
